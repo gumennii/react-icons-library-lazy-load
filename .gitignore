@@ -1,0 +1,15 @@
+# Build
+lib/
+svg/
+src/icons
+src/Icon.types.ts
+
+# Dependencies
+node_modules/
+
+# Files
+.DS_Store
+
+# Yarn
+yarn-error.log
+package-lock.json

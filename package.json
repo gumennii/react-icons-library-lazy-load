@@ -1,0 +1,53 @@
+{
+  "name": "lazy-icons",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "svg"
+  ],
+  "scripts": {
+    "prebuild": "npm run clean && npm run svg:copy",
+    "build": "npm run build:types && npm run build:components && rollup -c",
+    "build:components": "npm run svgr:solid && npm run svgr:regular && npm run svgr:brands",
+    "build:types": "node scripts/build-types.js",
+    "svg:copy": "node scripts/copy-svg.js",
+    "svgr:solid": "svgr -d src/icons/solid svg/solid && node scripts/build.js solid",
+    "svgr:regular": "svgr -d src/icons/regular svg/regular && node scripts/build.js regular",
+    "svgr:brands": "svgr -d src/icons/brands svg/brands && node scripts/build.js brands",
+    "clean": "npm run clean:lib && npm run clean:icons && npm run clean:types && npm run clean:svg",
+    "clean:lib": "rimraf lib",
+    "clean:svg": "rimraf svg",
+    "clean:icons": "rimraf src/icons",
+    "clean:types": "rimraf src/Icon.types.ts",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@svgr/cli": "^6.2.1",
+    "@svgr/rollup": "^6.2.1",
+    "@types/react": "^17.0.19",
+    "babel-loader": "^8.2.2",
+    "camelcase": "^6.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.2",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  }
+}

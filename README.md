@@ -53,3 +53,19 @@ _Please note: You don't need to optimize SVG Icons, script does it for you_
 ## ⚙️ How it Works
 
 By running `yarn build` we execute scripts from the `scripts` folder which take all SVG files from `assets/*` folders, optimizes them, and creates React Components. All React components are generated into the `src` folder, which bundles into `lib` folder by `Rollup`
+
+## 🐞 Known issues
+
+1. All icons starting with Digit were removed from the package. If we plan to add them back, we need to replace starting digits with word to prevent wrong imports where no import is allowed if starting with digit.
+
+2. You may be facing following error while building package
+
+```
+SvgoParserError: svg/solid/DsStoreSolid.svg:1:1: Non-whitespace before first tag.
+```
+
+To avoid this, manually remove all `.DS_Store` files from your folders by running
+
+```
+find . -name '.DS_Store' -type f -delete
+```

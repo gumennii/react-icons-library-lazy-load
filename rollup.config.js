@@ -12,7 +12,7 @@ export default {
     {
       dir: packageJson.main,
       format: "esm",
-      sourcemap: true,
+      sourcemap: false,
     },
   ],
   plugins: [

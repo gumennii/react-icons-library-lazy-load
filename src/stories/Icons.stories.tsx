@@ -2,7 +2,7 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 
 import Icon, { TIconComponent } from "../index";
-import { iconNames, TIconName } from "../Icon.types";
+import { iconNames } from "../Icon.types";
 
 export default {
   title: "All Icons",
@@ -35,8 +35,8 @@ const stylesName = {
 
 const Template: Story<TIconComponent> = (args) => (
   <div style={stylesContainer}>
-    {iconNames.map((name) => (
-      <div style={stylesThumbnail}>
+    {iconNames.map((name, index) => (
+      <div style={stylesThumbnail} key={index}>
         <Icon name={name} size="md" />
         <p style={stylesName}>{name}</p>
       </div>
@@ -44,6 +44,6 @@ const Template: Story<TIconComponent> = (args) => (
   </div>
 );
 
-export const Default = Template.bind({});
+export const Icons = Template.bind({});
 
-Default.storyName = "All Icons";
+Icons.storyName = "All Icons";

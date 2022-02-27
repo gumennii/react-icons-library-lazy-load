@@ -25,6 +25,6 @@ export const Default = Template.bind({});
 Default.storyName = "Icon";
 
 Default.args = {
-  name: "AddressBookRegular",
+  name: "AlienRegular",
   size: "lg",
 };

@@ -19,7 +19,7 @@ export default {
     peerDepsExternal(),
     resolve(),
     typescript({ useTsconfigDeclarationDir: true }),
-    filesize(),
-    svgr(),
+    // filesize(),
+    // svgr(),
   ],
 };
